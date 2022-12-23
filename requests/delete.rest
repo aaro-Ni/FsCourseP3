@@ -1,1 +1,1 @@
-DELETE http://localhost:3001/persons/4
+DELETE https://puhluettelobacend.fly.dev/persons/4

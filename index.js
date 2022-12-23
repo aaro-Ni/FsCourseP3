@@ -14,6 +14,7 @@ morgan.token('data', (req, res) => {
 app.use(express.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :data'))
 app.use(cors()) 
+app.use(express.static('build'))
 
 let persons = [
     {
@@ -92,12 +93,12 @@ app.post('/persons', (req, res) => {
     persons = persons.concat(person)
     
     res.json(person)
-    }
-
+    }  
+    
     
 })
 
-const PORT = process.env.PORT || 3001
+const PORT = 8080 //process.env.PORT //|| 3001  - process.env.PORT ei jostain syystä toiminut. Palauttaa undefined.
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
